@@ -1,0 +1,106 @@
+.update-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+
+.update-popup__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 2, 4, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.update-popup__panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 440px);
+  max-height: min(82vh, 640px);
+  overflow: auto;
+  padding: 1.55rem 1.45rem 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(167, 139, 250, 0.16), transparent 55%),
+    rgba(12, 12, 18, 0.96);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+  animation: update-popup-in 0.4s var(--ease) both;
+}
+
+.update-popup__eyebrow {
+  margin: 0 0 0.45rem;
+  color: var(--lavender-soft);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.update-popup__panel > h2 {
+  margin: 0 0 1.15rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 4vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.update-popup__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 0 1.35rem;
+}
+
+.update-popup__list li {
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.update-popup__item-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.update-popup__item-head h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.update-popup__item-head time {
+  flex-shrink: 0;
+  color: var(--text-dim);
+  font-size: 0.72rem;
+}
+
+.update-popup__list p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.update-popup__confirm {
+  width: 100%;
+}
+
+@keyframes update-popup-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

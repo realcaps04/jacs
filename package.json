@@ -5,15 +5,19 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:convex": "npx convex dev",
     "build": "npx tsc -b && npx vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "convex:deploy": "npx convex deploy"
   },
   "dependencies": {
+    "convex": "^1.45.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.18.3"
   },
   "devDependencies": {
+    "@types/node": "^22.20.2",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",

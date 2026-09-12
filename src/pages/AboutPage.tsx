@@ -297,7 +297,7 @@ export function AboutPage() {
 
       <CommunityCTA
         title="BE A PART OF THE JOURNEY"
-        ctaLabel="Join JACS →"
+        ctaLabel="Join with Google"
         leftText={'IDEAS\nSKILLS\nPEOPLE\nIMPACT'}
         rightText={'COMPUTERS\nCREATE\nCONNECT\nCHANGE'}
       />

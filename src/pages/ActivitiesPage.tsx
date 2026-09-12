@@ -392,7 +392,7 @@ export function ActivitiesPage() {
       <CommunityCTA
         title="BE PART OF WHAT'S NEXT"
         subtitle="Attend. Learn. Collaborate. Grow."
-        ctaLabel="Join JACS →"
+        ctaLabel="Join with Google"
         leftText={'SAME\nSTUDENTS\nBIGGER\nPOSSIBILITIES'}
         rightText={'LEARN\nBUILD\nSHARE\nLEAD'}
       />

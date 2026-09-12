@@ -14,7 +14,7 @@ type CommunityCTAProps = {
 export function CommunityCTA({
   title = 'BE A PART OF JACS',
   subtitle = 'Learn. Collaborate. Innovate. Lead.',
-  ctaLabel = 'Join the Community →',
+  ctaLabel = 'Join with Google',
   leftText = 'SAME\nSTUDENTS\nBIGGER\nPOSSIBILITIES',
   rightText = 'COMPUTERS\nPEOPLE\nIDEAS\nCHANGE',
 }: CommunityCTAProps) {
