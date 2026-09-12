@@ -7,6 +7,14 @@ export function HeaderNotify() {
   const panelId = useId()
 
   useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 8) setOpen(false)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
     if (!open) return
 
     const onPointerDown = (event: MouseEvent | TouchEvent) => {

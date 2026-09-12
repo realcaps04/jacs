@@ -35,10 +35,13 @@
 .site-header__brand {
   display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
   line-height: 0;
+  height: 40px;
 }
 
 .site-header__brand .jacs-logo {
+  display: block;
   image-rendering: auto;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -49,6 +52,7 @@
   display: flex;
   align-items: center;
   gap: 1.55rem;
+  height: 40px;
 }
 
 .site-header__nav a {
@@ -69,25 +73,54 @@
 .site-header__cta {
   justify-self: end;
   display: inline-flex;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  gap: 0.5rem;
-  min-height: 40px;
+  gap: 0.55rem;
+  height: 40px;
 }
 
-.site-header__cta .join-cta {
+.site-header__cta .join-cta,
+.site-header__cta .join-cta--end,
+.site-header__cta .join-cta--signed-in {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   width: auto;
+  height: 36px;
+  gap: 0;
   flex-shrink: 0;
 }
 
+.site-header__cta .join-cta__profile-btn {
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+}
+
+.site-header__cta .join-cta__avatar {
+  width: 100%;
+  height: 100%;
+}
+
+.site-header__cta .header-notify {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+}
+
 .site-header__cta .btn {
-  padding: 0.55rem 1.15rem;
+  height: 36px;
+  min-height: 36px;
+  padding: 0 1.15rem;
   font-size: 0.82rem;
+  line-height: 1;
 }
 
 @media (max-width: 960px) {
   .site-header {
-    padding: 0.45rem 0.85rem 0;
+    padding: 0.35rem 0.75rem 0;
   }
 
   .site-header__nav {
@@ -95,10 +128,16 @@
   }
 
   .site-header__inner {
-    grid-template-columns: 1fr auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+    min-height: 44px;
+    height: 44px;
     border: none;
     border-radius: 0;
-    padding: 0.35rem 0.55rem;
+    padding: 0 0.15rem;
   }
 
   .site-header.is-scrolled .site-header__inner {
@@ -111,6 +150,8 @@
   }
 
   .site-header__brand {
+    height: 36px;
+    flex-shrink: 0;
     transition:
       opacity 0.3s var(--ease),
       transform 0.3s var(--ease),
@@ -118,8 +159,8 @@
   }
 
   .site-header__brand .jacs-logo {
-    width: 52px !important;
-    height: 46px !important;
+    width: 40px !important;
+    height: 36px !important;
   }
 
   .site-header.is-scrolled .site-header__brand {
@@ -129,38 +170,38 @@
     transform: translateY(-8px) scale(0.96);
   }
 
-  .site-header.is-scrolled .site-header__inner {
-    grid-template-columns: 1fr auto;
-  }
-
-  .site-header.is-scrolled .site-header__cta {
-    justify-self: end;
-  }
-
   .site-header__cta {
-    display: inline-flex;
     position: relative;
     z-index: 120;
-    justify-self: end;
-    align-items: center;
-    gap: 0.5rem;
-    min-height: 40px;
-  }
-
-  .site-header__cta .join-cta {
-    width: auto;
-    flex-shrink: 0;
-  }
-
-  .site-header__cta .join-cta__avatar {
-    width: 36px;
     height: 36px;
+    gap: 0.45rem;
+    margin-left: auto;
+  }
+
+  .site-header__cta .header-notify {
+    transition:
+      opacity 0.3s var(--ease),
+      transform 0.3s var(--ease),
+      visibility 0.3s,
+      width 0.3s var(--ease),
+      margin 0.3s var(--ease);
+  }
+
+  .site-header.is-scrolled .site-header__cta .header-notify {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px) scale(0.96);
+    width: 0;
+    margin: 0;
+    overflow: hidden;
   }
 
   .site-header__cta .btn {
+    height: 36px;
     min-height: 36px;
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
+    padding: 0 0.95rem;
+    font-size: 0.78rem;
     font-weight: 600;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
   }

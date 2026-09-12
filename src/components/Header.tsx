@@ -3,12 +3,14 @@ import { Link, NavLink } from 'react-router-dom'
 import { Logo } from './Logo'
 import { JoinEmailCTA } from './JoinEmailCTA'
 import { HeaderNotify } from './HeaderNotify'
+import { useGoogleAuth } from '../auth/GoogleAuthContext'
 import { navLinks } from '../data/nav'
 import './Header.css'
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const { user } = useGoogleAuth()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -45,8 +47,8 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="site-header__cta">
-          <HeaderNotify />
+        <div className={`site-header__cta ${user ? 'has-profile' : ''}`}>
+          {user ? <HeaderNotify /> : null}
           <JoinEmailCTA
             label={isMobile ? 'Join us' : 'Join with Google'}
             variant={isMobile ? 'primary' : 'outline'}
