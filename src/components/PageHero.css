@@ -1,0 +1,49 @@
+.page-hero {
+  position: relative;
+  padding: calc(var(--header-h) + 4.5rem) 0 3rem;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.page-hero__glow {
+  position: absolute;
+  inset: -20% 30% auto -10%;
+  height: 80%;
+  background: radial-gradient(ellipse, rgba(167, 139, 250, 0.12), transparent 65%);
+  pointer-events: none;
+}
+
+.page-hero__inner {
+  position: relative;
+  max-width: 48rem;
+}
+
+.page-hero__mark {
+  display: block;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.page-hero .eyebrow {
+  margin-bottom: 1rem;
+}
+
+.page-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.page-hero__subtitle {
+  margin-top: 1.15rem;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 36rem;
+}
