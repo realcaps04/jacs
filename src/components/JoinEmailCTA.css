@@ -39,6 +39,7 @@
 }
 
 .join-cta__profile-btn {
+  position: relative;
   display: grid;
   place-items: center;
   padding: 0;
@@ -72,6 +73,25 @@
   font-weight: 600;
 }
 
+.join-cta__verified {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 15px;
+  height: 15px;
+  display: grid;
+  place-items: center;
+  color: #c4b5fd;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+}
+
+.join-cta__verified svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
 .join-cta__menu {
   position: absolute;
   top: calc(100% + 0.55rem);
@@ -99,6 +119,13 @@
   transform: translateX(-50%);
 }
 
+.join-cta__menu-head {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.15rem;
+}
+
 .join-cta__menu-name {
   margin: 0;
   font-family: var(--font-display);
@@ -106,6 +133,19 @@
   font-weight: 600;
   color: var(--text);
   line-height: 1.25;
+}
+
+.join-cta__menu-badge {
+  flex-shrink: 0;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(167, 139, 250, 0.18);
+  border: 1px solid rgba(196, 181, 253, 0.35);
+  color: var(--lavender-soft);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .join-cta__menu-email {

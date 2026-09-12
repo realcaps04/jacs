@@ -110,11 +110,26 @@ export function JoinEmailCTA({
               {user.name.slice(0, 1).toUpperCase()}
             </span>
           )}
+          <span className="join-cta__verified" title="Verified" aria-label="Verified">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 2.2 14.4 4l2.9-.4 1.2 2.7 2.7 1.2-.4 2.9L22.8 12l-1.8 2.4.4 2.9-2.7 1.2-1.2 2.7-2.9-.4L12 21.8l-2.4-1.8-2.9.4-1.2-2.7-2.7-1.2.4-2.9L2.2 12l1.8-2.4-.4-2.9 2.7-1.2L7.5 3.6l2.9.4L12 2.2Z"
+              />
+              <path
+                fill="#0a0a0c"
+                d="M10.2 12.7 8.8 11.3l-.9.9 2.3 2.3 4.5-4.5-.9-.9-3.6 3.6Z"
+              />
+            </svg>
+          </span>
         </button>
 
         {menuOpen && (
           <div className="join-cta__menu" id={menuId} role="menu">
-            <p className="join-cta__menu-name">{user.name}</p>
+            <div className="join-cta__menu-head">
+              <p className="join-cta__menu-name">{user.name}</p>
+              <span className="join-cta__menu-badge">Verified</span>
+            </div>
             <p className="join-cta__menu-email">{user.email}</p>
             <button
               type="button"
