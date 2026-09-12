@@ -22,4 +22,12 @@ export default defineSchema({
   })
     .index('by_token', ['token'])
     .index('by_google_id', ['googleId']),
+
+  updates: defineTable({
+    title: v.string(),
+    body: v.string(),
+    publishedAt: v.number(),
+    active: v.boolean(),
+    mandatory: v.boolean(),
+  }).index('by_active_published', ['active', 'publishedAt']),
 })
