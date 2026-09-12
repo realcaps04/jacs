@@ -7,6 +7,7 @@ type JoinEmailCTAProps = {
   variant?: 'primary' | 'outline'
   className?: string
   align?: 'center' | 'start' | 'end'
+  showIcon?: boolean
 }
 
 function GoogleMark() {
@@ -37,6 +38,7 @@ export function JoinEmailCTA({
   variant = 'primary',
   className = '',
   align = 'center',
+  showIcon = true,
 }: JoinEmailCTAProps) {
   const { user, loading, busy, error, googleReady, signInWithGoogle, logout } = useGoogleAuth()
   const [menuOpen, setMenuOpen] = useState(false)
@@ -74,7 +76,9 @@ export function JoinEmailCTA({
   if (loading) {
     return (
       <div className={`join-cta join-cta--${align} ${className}`.trim()}>
-        <span className="join-cta__status">Checking session…</span>
+        <button type="button" className={`btn ${variant === 'primary' ? 'btn-primary' : 'btn-outline'}`} disabled>
+          {label}
+        </button>
       </div>
     )
   }
@@ -137,8 +141,8 @@ export function JoinEmailCTA({
         disabled={busy || !googleReady}
         onClick={() => void signInWithGoogle()}
       >
-        <GoogleMark />
-        {busy ? 'Opening Google…' : label}
+        {showIcon ? <GoogleMark /> : null}
+        {busy ? 'Opening…' : label}
       </button>
       {!googleReady && (
         <p className="join-cta__error">Google sign-in is not configured yet.</p>

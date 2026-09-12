@@ -17,6 +17,7 @@
   --font-hero: 'Gropled', 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --header-h: 72px;
+  --mobile-nav-h: 64px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --radius-pill: 999px;
 }
@@ -183,5 +184,11 @@ ul {
   .container,
   .container-wide {
     width: calc(100% - 2rem);
+  }
+}
+
+@media (max-width: 960px) {
+  .app {
+    padding-bottom: calc(var(--mobile-nav-h) + 2rem + env(safe-area-inset-bottom));
   }
 }
