@@ -63,17 +63,16 @@ export function Footer() {
           <Link to="/" className="footer__logo" aria-label="JACS home">
             <Logo size={88} variant="footer" alt="JACS — JPM Association Of Computer Students" />
           </Link>
+          <p className="footer__title">JACS — JPM Association Of Computer Students</p>
           <p className="footer__dept">
             Department of Computer Science
             <br />
             JPM Arts and Science College, Labbakkada
           </p>
           <p className="footer__statement">
-            Empowering students to think beyond,
+            Empowering students to think beyond, learn together
             <br />
-            learn together and create a better tomorrow
-            <br />
-            through technology.
+            and create a better tomorrow through technology.
           </p>
         </div>
 
