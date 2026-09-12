@@ -11,7 +11,6 @@ export function FensterPage() {
   return (
     <>
       <PageHero
-        mark="04 / FENSTER"
         eyebrow="Our Signature Event"
         title="FENSTER"
         subtitle="National level tech fest — a platform for bright minds."

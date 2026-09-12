@@ -4,5 +4,4 @@ export const navLinks = [
   { to: '/activities', label: 'Activities' },
   { to: '/fenster', label: 'Fenster' },
   { to: '/gallery', label: 'Gallery' },
-  { to: '/contact', label: 'Contact' },
 ] as const

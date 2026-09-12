@@ -55,7 +55,13 @@ function CountStat({
   )
 }
 
-export function Impact() {
+export function Impact({
+  title = 'Numbers Speak',
+  lede,
+}: {
+  title?: string
+  lede?: string
+}) {
   const { ref, visible } = useReveal<HTMLElement>(0.25)
 
   return (
@@ -63,7 +69,8 @@ export function Impact() {
       <div className="container">
         <div className={`impact__intro reveal ${visible ? 'is-visible' : ''}`}>
           <p className="eyebrow">Our Impact</p>
-          <h2 className="section-heading">Numbers Speak</h2>
+          <h2 className="section-heading">{title}</h2>
+          {lede ? <p className="impact__lede">{lede}</p> : null}
         </div>
 
         <div className={`impact__grid reveal reveal-delay-1 ${visible ? 'is-visible' : ''}`}>

@@ -10,6 +10,14 @@
   margin-bottom: 0.9rem;
 }
 
+.impact__lede {
+  margin-top: 0.9rem;
+  max-width: 34rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
 .impact__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

@@ -1,8 +1,23 @@
 import { useReveal } from '../hooks/useReveal'
 import { images } from '../data/images'
+import { JoinEmailCTA } from './JoinEmailCTA'
 import './CommunityCTA.css'
 
-export function CommunityCTA() {
+type CommunityCTAProps = {
+  title?: string
+  subtitle?: string
+  ctaLabel?: string
+  leftText?: string
+  rightText?: string
+}
+
+export function CommunityCTA({
+  title = 'BE A PART OF JACS',
+  subtitle = 'Learn. Collaborate. Innovate. Lead.',
+  ctaLabel = 'Join the Community →',
+  leftText = 'SAME\nSTUDENTS\nBIGGER\nPOSSIBILITIES',
+  rightText = 'COMPUTERS\nPEOPLE\nIDEAS\nCHANGE',
+}: CommunityCTAProps) {
   const { ref, visible } = useReveal<HTMLElement>()
 
   return (
@@ -13,31 +28,27 @@ export function CommunityCTA() {
       </div>
 
       <p className="community__side community__side--left" aria-hidden="true">
-        SAME
-        <br />
-        STUDENTS
-        <br />
-        BIGGER
-        <br />
-        POSSIBILITIES
+        {leftText.split('\n').map((line, i, arr) => (
+          <span key={line}>
+            {line}
+            {i < arr.length - 1 ? <br /> : null}
+          </span>
+        ))}
       </p>
 
       <div className={`community__content reveal ${visible ? 'is-visible' : ''}`}>
-        <h2>BE A PART OF JACS</h2>
-        <p>Learn. Collaborate. Innovate. Lead.</p>
-        <a href="mailto:jacs@jpmcollege.ac.in" className="btn btn-primary">
-          Join the Community →
-        </a>
+        <h2>{title}</h2>
+        <p>{subtitle}</p>
+        <JoinEmailCTA label={ctaLabel} variant="primary" align="center" />
       </div>
 
       <p className="community__side community__side--right" aria-hidden="true">
-        COMPUTERS
-        <br />
-        PEOPLE
-        <br />
-        IDEAS
-        <br />
-        CHANGE
+        {rightText.split('\n').map((line, i, arr) => (
+          <span key={line}>
+            {line}
+            {i < arr.length - 1 ? <br /> : null}
+          </span>
+        ))}
       </p>
     </section>
   )

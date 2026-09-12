@@ -68,8 +68,21 @@
 
 .site-header__cta {
   justify-self: end;
+}
+
+.site-header__cta .btn {
   padding: 0.55rem 1.15rem;
   font-size: 0.82rem;
+}
+
+.site-header__cta .join-cta__form {
+  width: min(100%, 320px);
+  padding: 0.25rem 0.25rem 0.25rem 0.85rem;
+}
+
+.site-header__cta .join-cta__submit {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.78rem;
 }
 
 .site-header__menu {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Logo } from './Logo'
+import { JoinEmailCTA } from './JoinEmailCTA'
 import { navLinks } from '../data/nav'
 import './Header.css'
 
@@ -43,9 +44,9 @@ export function Header() {
           ))}
         </nav>
 
-        <Link to="/contact" className="site-header__cta btn btn-outline">
-          Join JACS →
-        </Link>
+        <div className="site-header__cta">
+          <JoinEmailCTA label="Join JACS →" variant="outline" align="end" />
+        </div>
 
         <button
           className="site-header__menu"
@@ -72,9 +73,7 @@ export function Header() {
               {link.label}
             </NavLink>
           ))}
-          <Link to="/contact" className="btn btn-primary" onClick={() => setOpen(false)}>
-            Join JACS →
-          </Link>
+          <JoinEmailCTA label="Join JACS →" variant="primary" align="start" />
         </nav>
       </div>
     </header>

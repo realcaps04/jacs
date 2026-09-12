@@ -16,7 +16,6 @@ export function ContactPage() {
   return (
     <>
       <PageHero
-        mark="06 / CONTACT"
         eyebrow="Join the Community"
         title="Be a Part of JACS"
         subtitle="Reach out to collaborate, join, or learn more about the Department of Computer Science at JPM."
