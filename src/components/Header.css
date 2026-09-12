@@ -76,6 +76,10 @@
 }
 
 @media (max-width: 960px) {
+  .site-header {
+    padding: 0.45rem 0.85rem 0;
+  }
+
   .site-header__nav {
     display: none;
   }
@@ -84,6 +88,7 @@
     grid-template-columns: 1fr auto;
     border: none;
     border-radius: 0;
+    padding: 0.35rem 0.55rem;
   }
 
   .site-header.is-scrolled .site-header__inner {
