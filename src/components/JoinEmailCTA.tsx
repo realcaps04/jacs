@@ -28,6 +28,16 @@ export function JoinEmailCTA({
     }
   }, [open, done])
 
+  useEffect(() => {
+    if (!done) return
+    const t = window.setTimeout(() => {
+      setDone(false)
+      setOpen(false)
+      setEmail('')
+    }, 3200)
+    return () => window.clearTimeout(t)
+  }, [done])
+
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
     if (!email.trim()) return

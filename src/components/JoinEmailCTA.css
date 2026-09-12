@@ -87,6 +87,23 @@
   animation: join-fade 0.4s var(--ease) both;
 }
 
+.join-cta--done .join-cta__success {
+  animation:
+    join-fade 0.4s var(--ease) both,
+    join-hide 0.45s var(--ease) 2.7s both;
+}
+
+@keyframes join-hide {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

@@ -118,6 +118,10 @@
   white-space: nowrap;
 }
 
+.footer__heart {
+  color: #c3b4fd;
+}
+
 .footer__made a {
   color: var(--text-muted);
   transition: color 0.25s ease;

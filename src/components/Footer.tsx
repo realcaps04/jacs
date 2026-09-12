@@ -108,7 +108,7 @@ export function Footer() {
           JPM Arts and Science College, Labbakkada
         </p>
         <p className="footer__made">
-          Made with ♥ by{' '}
+          Made with <span className="footer__heart">♥</span> by{' '}
           <a href="https://consoleprojectsbycaps.in" target="_blank" rel="noopener noreferrer">
             consoleprojectsbycaps.in
           </a>
