@@ -1,3 +1,4 @@
+import { useEffect, useId, useRef, useState } from 'react'
 import { useGoogleAuth } from '../auth/GoogleAuthContext'
 import './JoinEmailCTA.css'
 
@@ -38,6 +39,37 @@ export function JoinEmailCTA({
   align = 'center',
 }: JoinEmailCTAProps) {
   const { user, loading, busy, error, googleReady, signInWithGoogle, logout } = useGoogleAuth()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const rootRef = useRef<HTMLDivElement>(null)
+  const menuId = useId()
+
+  useEffect(() => {
+    if (!menuOpen) return
+
+    const onPointerDown = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node
+      if (rootRef.current && !rootRef.current.contains(target)) {
+        setMenuOpen(false)
+      }
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenuOpen(false)
+    }
+
+    document.addEventListener('mousedown', onPointerDown)
+    document.addEventListener('touchstart', onPointerDown)
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown)
+      document.removeEventListener('touchstart', onPointerDown)
+      document.removeEventListener('keydown', onKeyDown)
+    }
+  }, [menuOpen])
+
+  useEffect(() => {
+    if (!user) setMenuOpen(false)
+  }, [user])
 
   if (loading) {
     return (
@@ -49,23 +81,50 @@ export function JoinEmailCTA({
 
   if (user) {
     return (
-      <div className={`join-cta join-cta--${align} join-cta--signed-in ${className}`.trim()}>
-        <div className="join-cta__user">
+      <div
+        ref={rootRef}
+        className={`join-cta join-cta--${align} join-cta--signed-in ${className}`.trim()}
+      >
+        <button
+          type="button"
+          className="join-cta__profile-btn"
+          aria-label="Account menu"
+          aria-haspopup="menu"
+          aria-expanded={menuOpen}
+          aria-controls={menuId}
+          onClick={() => setMenuOpen((v) => !v)}
+        >
           {user.picture ? (
-            <img src={user.picture} alt="" className="join-cta__avatar" referrerPolicy="no-referrer" />
+            <img
+              src={user.picture}
+              alt=""
+              className="join-cta__avatar"
+              referrerPolicy="no-referrer"
+            />
           ) : (
             <span className="join-cta__avatar join-cta__avatar--fallback" aria-hidden="true">
               {user.name.slice(0, 1).toUpperCase()}
             </span>
           )}
-          <span className="join-cta__user-meta">
-            <strong>{user.name}</strong>
-            <small>{user.email}</small>
-          </span>
-          <button type="button" className="join-cta__logout" onClick={logout}>
-            Sign out
-          </button>
-        </div>
+        </button>
+
+        {menuOpen && (
+          <div className="join-cta__menu" id={menuId} role="menu">
+            <p className="join-cta__menu-name">{user.name}</p>
+            <p className="join-cta__menu-email">{user.email}</p>
+            <button
+              type="button"
+              className="join-cta__menu-signout"
+              role="menuitem"
+              onClick={() => {
+                setMenuOpen(false)
+                logout()
+              }}
+            >
+              Sign out
+            </button>
+          </div>
+        )}
       </div>
     )
   }

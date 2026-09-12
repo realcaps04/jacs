@@ -106,7 +106,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="site-header__cta">
+        <div className={`site-header__cta ${user ? 'is-profile' : ''}`}>
           <JoinEmailCTA label="Join with Google" variant="outline" align="end" />
         </div>
 
@@ -147,8 +147,9 @@ export function Header() {
             ))}
           </nav>
 
+          {!user && (
           <div className="mobile-menu__join">
-            {user || loading ? (
+            {loading ? (
               <JoinEmailCTA label="Join with Google" variant="primary" align="start" />
             ) : (
               <>
@@ -188,6 +189,7 @@ export function Header() {
               </>
             )}
           </div>
+          )}
 
           <p className="mobile-menu__tagline">Learn. Build. Share. Lead.</p>
 
