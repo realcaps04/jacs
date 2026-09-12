@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Logo } from './Logo'
 import { JoinEmailCTA } from './JoinEmailCTA'
+import { HeaderNotify } from './HeaderNotify'
 import { navLinks } from '../data/nav'
 import './Header.css'
 
@@ -45,6 +46,7 @@ export function Header() {
         </nav>
 
         <div className="site-header__cta">
+          <HeaderNotify />
           <JoinEmailCTA
             label={isMobile ? 'Join us' : 'Join with Google'}
             variant={isMobile ? 'primary' : 'outline'}

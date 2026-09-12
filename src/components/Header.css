@@ -68,6 +68,16 @@
 
 .site-header__cta {
   justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  min-height: 40px;
+}
+
+.site-header__cta .join-cta {
+  width: auto;
+  flex-shrink: 0;
 }
 
 .site-header__cta .btn {
@@ -128,20 +138,28 @@
   }
 
   .site-header__cta {
-    display: flex;
+    display: inline-flex;
     position: relative;
     z-index: 120;
     justify-self: end;
     align-items: center;
+    gap: 0.5rem;
+    min-height: 40px;
   }
 
   .site-header__cta .join-cta {
     width: auto;
+    flex-shrink: 0;
+  }
+
+  .site-header__cta .join-cta__avatar {
+    width: 36px;
+    height: 36px;
   }
 
   .site-header__cta .btn {
-    min-height: 40px;
-    padding: 0.55rem 1.05rem;
+    min-height: 36px;
+    padding: 0.5rem 1rem;
     font-size: 0.8rem;
     font-weight: 600;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);

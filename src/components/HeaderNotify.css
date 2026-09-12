@@ -1,0 +1,117 @@
+.header-notify {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.header-notify__btn {
+  position: relative;
+  box-sizing: border-box;
+  width: 36px;
+  height: 36px;
+  display: inline-grid;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  color: var(--text-muted);
+  background: rgba(8, 8, 12, 0.45);
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.header-notify__btn svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.header-notify__btn:hover,
+.header-notify__btn.is-open {
+  color: var(--text);
+  border-color: rgba(196, 181, 253, 0.55);
+  background: rgba(167, 139, 250, 0.1);
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.16);
+}
+
+.header-notify__dot {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c4b5fd;
+  box-shadow: 0 0 0 2px rgba(5, 5, 7, 0.9), 0 0 10px rgba(196, 181, 253, 0.7);
+}
+
+.header-notify__panel {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  right: 0;
+  left: auto;
+  z-index: 140;
+  width: min(78vw, 260px);
+  padding: 0.9rem 0.95rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(12, 12, 18, 0.96);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: header-notify-in 0.22s var(--ease) both;
+}
+
+.header-notify__eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--lavender-soft);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.header-notify__title {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.header-notify__body {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+@keyframes header-notify-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 960px) {
+  .header-notify__btn {
+    width: 36px;
+    height: 36px;
+    background: rgba(8, 8, 12, 0.55);
+  }
+
+  .header-notify__panel {
+    right: -2.6rem;
+  }
+}
