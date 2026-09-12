@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import { images } from '../data/images'
 import './About.css'
@@ -6,11 +7,7 @@ export function About() {
   const { ref, visible } = useReveal<HTMLElement>()
 
   return (
-    <section
-      className={`about section ${visible ? 'is-visible' : ''}`}
-      id="about"
-      ref={ref}
-    >
+    <section className={`about section ${visible ? 'is-visible' : ''}`} ref={ref}>
       <div className="container">
         <div className={`about__intro reveal ${visible ? 'is-visible' : ''}`}>
           <p className="eyebrow">About JACS</p>
@@ -24,10 +21,10 @@ export function About() {
         <div className="about__grid">
           <figure className={`about__media reveal reveal-delay-1 ${visible ? 'is-visible' : ''}`}>
             <img src={images.collegeMono} alt="Campus architecture at JPM Arts and Science College" />
-            <figcaption>MORE THAN A DEPARTMENT. A COMMUNITY.</figcaption>
-            <span className="about__coord" aria-hidden="true">
-              02 · COMMUNITY
-            </span>
+            <figcaption>
+              More Than A <span className="about__accent">Department.</span> A{' '}
+              <span className="about__accent">Community.</span>
+            </figcaption>
           </figure>
 
           <div className={`about__copy reveal reveal-delay-2 ${visible ? 'is-visible' : ''}`}>
@@ -43,9 +40,9 @@ export function About() {
               technical skills among students. JACS also aims to develop teamwork skills and
               encourage students to bring forth their leadership qualities.
             </p>
-            <a href="#contact" className="btn btn-outline about__cta">
+            <Link to="/about" className="btn btn-outline about__cta">
               Know More About Us →
-            </a>
+            </Link>
           </div>
         </div>
       </div>

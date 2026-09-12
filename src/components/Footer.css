@@ -123,12 +123,12 @@
 }
 
 .footer__made a {
-  color: var(--text-muted);
+  color: #c3b4fd;
   transition: color 0.25s ease;
 }
 
 .footer__made a:hover {
-  color: var(--lavender-soft);
+  color: #ddd6fe;
 }
 
 @media (max-width: 860px) {

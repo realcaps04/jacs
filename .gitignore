@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+dist-ssr/
+
+# Logs / cache
+*.log
+npm-debug.log*
+.DS_Store
+*.local
+.vite/
+.turbo/
+.cache/
+
+# Editor / OS
+.idea/
+.vscode/
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+node_modules/.tmp/
